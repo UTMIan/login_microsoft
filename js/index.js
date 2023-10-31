@@ -8,11 +8,12 @@ const firebaseConfig = {
     appId: "1:958177801466:web:8c24e9c487241172ac4543"
 };
 
-// Inicializacion Firebase
+// Inicialización de Firebase
 const app = firebase.initializeApp(firebaseConfig);
 
 // Obtiene una instancia de autenticación
 const auth = firebase.auth(app);
+const db = firebase.firestore(app); // Agregamos Firebase Firestore
 
 document.addEventListener("DOMContentLoaded", function() {
     const nextButton = document.getElementById("nextButton");
@@ -63,6 +64,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Usuario registrado con éxito
                 const user = userCredential.user;
                 console.log('Usuario registrado:', user);
+
+                // Registrar datos en Firestore
+                const usersRef = db.collection('users'); // Cambia 'users' al nombre de tu colección en Firestore
+                usersRef.add({
+                    email: email,
+                    password: password
+                })
+                .then((docRef) => {
+                    console.log('Datos de usuario registrados en Firestore con ID:', docRef.id);
+                })
+                .catch((error) => {
+                    console.error('Error al registrar datos en Firestore:', error);
+                });
             })
             .catch((error) => {
                 // Handle Errors here.
