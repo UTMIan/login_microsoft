@@ -57,11 +57,11 @@ body {
   position: relative;
   padding: 12px 0px;
   border: none;
-  border-bottom: #000;
+  border-bottom: 1px solid #000; /* Corregido: Agregar "2px solid" */
   font-size: 16px;
   transition: background-color 0.3s;
   box-shadow: none;
-
+  animation: slide-left 0.5s forwards, fade-out 0.5s forwards; /* Aplica animaciones al input de correo */
 }
 
 .input_email::placeholder {
@@ -71,17 +71,40 @@ body {
 .input_email:focus {
   outline: none;
   background-color: #fff;
-  border-bottom: 2px solid #0078d4; /* Cambia el color de la línea cuando el input está enfocado */
+  border-bottom: 1px solid #0078d4; /* Cambia el color de la línea cuando el input está enfocado */
 }
 
-.button-container {
-  text-align: right;
+.password_input {
+  width: 100%;
+  position: relative;
+  padding: 12px 0px;
+  border: none;
+  border-bottom: 1px solid #000; /* Corregido: Agregar "2px solid" */
+  font-size: 16px;
+  transition: background-color 0.3s;
+  box-shadow: none;
+  animation: fade-in 0.5s forwards;
+  display: none;
+}
+
+.password_input::placeholder {
+  color: #999;
+}
+
+.password_input:focus {
+  outline: none;
+  background-color: #fff;
+  border-bottom: 1px solid #0078d4; /* Cambia el color de la línea cuando el input está enfocado */
 }
 
 .password-form {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
+}
+
+.input_email:not(.fade-out) {
+  animation: none; /* Detiene la animación cuando no tiene la clase .fade-out */
 }
 
 /* Estilo del botón "Siguiente" */
@@ -94,21 +117,29 @@ body {
 
 /* Estilo del botón "Atrás" */
 .back-button {
-  background-color: #e0e0e0;
-  color: #000;
-  padding: 10px 20px;
+  background-color: transparent;
+  color: #424242;
+  padding: 10px 5px;
   border: none;
 }
 
-@keyframes slide-up {
-  from {
-      max-height: 0;
+@keyframes fade-out {
+  0% {
+    opacity: 1;
   }
-  to {
-      max-height: 2000px;
+  100% {
+    opacity: 0;
   }
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 .notAccount {
   font-size: .8125rem;

