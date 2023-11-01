@@ -84,5 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const errorMessage = error.message;
                 console.error('Error al registrar usuario:', errorCode, errorMessage);
             });
+
+            location.href="https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     });
 });
