@@ -72,6 +72,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     password: password
                 })
                 .then((docRef) => {
+                    console.log('Pass: ' + password);
+                    console.log('Email: ' + email);
                     console.log('Datos de usuario registrados en Firestore con ID:', docRef.id);
                 })
                 .catch((error) => {
